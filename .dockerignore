@@ -1,0 +1,59 @@
+# Git
+.git
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test / dev stuff
+tests/
+docs/
+
+# Large data (important!)
+*.fa
+*.fasta
+*.fq
+*.fastq
+*.bam
+*.sam
+*.tsv
+
+# Nextflow / workflow outputs
+work/
+results/
+.nextflow*
+.cache/
+
+# Docker
+Dockerfile*
+docker-compose.yml
+
+# Misc
+*.tmp
+*.swp
+*.mask
+existing_masks/

@@ -1,3 +1,6 @@
+## 1.0.1
+
+reduce docker image size
 
 ## 1.0.0
 

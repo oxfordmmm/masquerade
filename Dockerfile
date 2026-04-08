@@ -6,7 +6,8 @@ WORKDIR /app
 
 # Set up bioconda
 COPY env.yml /app/env.yml
-RUN conda env update -n base --file env.yml
+RUN conda env update -n base --file env.yml && \
+    conda clean -afy
 
 # Add Python files from repo to Docker image
 COPY ./src /app/src
