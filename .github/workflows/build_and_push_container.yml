@@ -1,0 +1,52 @@
+name: Build and Push Container
+
+on:
+  push:
+    tags:
+      - "*"
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: oxfordmmm/masquerade
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: "Build docker containers"
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Determine the tag to use
+        id: image-tag
+        run: |
+          if [[ -n "${{ inputs.tag }}" ]]; then
+            echo "tag=${{ inputs.tag }}" >> $GITHUB_ENV
+          else
+            echo "tag=${{ github.ref_name }}" >> $GITHUB_ENV
+          fi
+
+      - name: Set full image registry tag
+        run: |
+          echo "FULL_IMAGE_TAG=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.tag }}" >> $GITHUB_ENV
+          echo "FULL_IMAGE_TAG: ${{ env.FULL_IMAGE_TAG }}"
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          file: Dockerfile
+          tags: ${{ env.FULL_IMAGE_TAG }}

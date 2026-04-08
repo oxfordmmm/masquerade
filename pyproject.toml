@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools~=68.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "masquerade"
+version = "1.0.0"
+description = "Genome mask making repo."
+authors = [{ name = "Matthew Colpus" }]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.9,<4.0"
+
+[project.scripts]
+combine_masks = "masquerade.combine_masks:main"
+compare_masks = "masquerade.compare_masks:main"
+expand_mask = "masquerade.expand_mask:main"
+evaluate_mask_seq = "masquerade.evaluate_mask_seq:main"
+look_up_location = "masquerade.look_up_location:main"
+auto_mask = "masquerade.auto_mask:main"
+
+[project.optional-dependencies]
+dev = ["pre-commit", "commitizen"]

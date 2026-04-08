@@ -1,0 +1,9 @@
+mask,reason,mask_size,additional_masking,total_mask_size
+dust_20,low complexity areas,80598,80598,80598
+mummer tandem repeats,tandem repeats,10632,7700,88298
+ncbi annotation pipeline,know repetitive elements,2923,2923,91221
+self_blast,repetitive areas across genome,112992,95909,187130
+enclose100,cover small gaps,197876,10746,197876
+marin_RLC,Sites with empirically bad illumina mapping,177077,55481,253357
+repeat_regions from gff,repetitive regions,28733,7203,260560
+enclose100,cover small gaps,264525,3965,264525
