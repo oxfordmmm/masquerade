@@ -3,3 +3,4 @@ snp_investigations/all_fastas
 snp_investigations/region_*/
 __pycache__/
 *egg-info/
+.vscode/
