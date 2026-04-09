@@ -1,3 +1,7 @@
+## 1.0.2
+
+push to ocr registry as well
+
 ## 1.0.1
 
 reduce docker image size
